@@ -1,0 +1,276 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.5;
+  line-height: 1.5;
+  background: black;
+  color: white !important;
+  /* height: 100vh; */
+}
+
+.header {
+  background: black;
+}
+
+.navbar {
+  width: 100%;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 0px;
+  border-bottom: 1px solid grey;
+  display: flex;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin-right: 20px;
+  font-size: 20px;
+  padding: 10px;
+  outline-offset: 2px;
+}
+
+.link:hover {
+  outline: 1px solid grey;
+}
+
+.footer {
+  padding: 10px 0px;
+  background: black;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.footer-container {
+  color: white;
+  width: 100%;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid grey;
+}
+
+/* Home Section */
+
+.home {
+  width: 100%;
+  background: black;
+  color: white;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.home_container {
+  width: 100%;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading1 {
+  font-size: 64px;
+  font-weight: 600;
+  padding-top: 20px;
+}
+
+.text {
+  font-size: 36px;
+  margin-top: 0;
+}
+
+/* Pagination */
+.pagination {
+  color: white;
+}
+
+.userlist {
+  display: flex;
+  border: 1px solid grey;
+  padding: 0;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.userlist p {
+  margin: 0;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.pagination_container {
+  width: 100%;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.prev,
+.next {
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+  margin: 5px 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 80px;
+}
+
+.prevandnext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+  padding: 0;
+}
+
+.page {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin: 10px 6px;
+  background: transparent;
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 50px;
+}
+
+.page:hover {
+  background: grey;
+}
+
+.page_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  @media screen and (max-width: 992px) {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+/* Loader */
+
+.loader_container {
+  width: 100%;
+  height: 100%;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  margin-top: 200px;
+}
+
+/* Error Page */
+.error-page {
+  width: 100%;
+  height: 100%;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 36px;
+  margin-top: 100px;
+}
+
+
+/* ErrorBoundary Page */
+.error_boundary {
+  width: 100%;
+  height: 100%;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  /* align-items: center; */
+  color: white;
+  font-size: 36px;
+  margin-top: 50px;
+}
+
+.error_boundary .title {
+  text-align: left;
+   width: 100%;
+   margin-bottom: 20px;
+   font-size: 36px;
+}
+
+
+
+/* Counter */
+.counter_container {
+  width: 100%;
+  text-align: center;
+}
+
+.counter_container h1 {
+  font-size: 36px;
+}
+
+.counter_container p {
+  font-size: 20px;
+}
+.counter_container button {
+  font-size: 20px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background: transparent;
+  color: white;
+}
+
+.counter_container button:hover {
+  background: grey;
+}
+
+
+/* Error Fallback */
+.error_message {
+  color: #ff0033;
+  font-size: 20px;
+  text-align: center;
+}
+
+.error_message button {
+  font-size: 20px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background: transparent;
+  color: white;
+}
+
+.error_message button:hover {
+  background: grey;
+}
