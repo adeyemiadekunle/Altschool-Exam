@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import useFetch from '../Component/useFetch';
 
-
 const Pagination = () => {
   const [page, setpage] = useState(1);
 
@@ -10,7 +9,7 @@ const Pagination = () => {
   );
 
   console.log({ loading, error, data });
-  const total = data?.results?.length;
+  // const total = data?.results?.length;
   const pages = 20;
 
   if (loading) {
@@ -24,7 +23,20 @@ const Pagination = () => {
   }
 
   if (!loading && error) {
-    return <>Error</>;
+    return (
+      <div
+        style={{
+          width: '100%',
+          maxWidth: '90%',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          paddingTop: '100px',
+          textAlign: 'center',
+        }}
+      >
+        Error
+      </div>
+    );
   }
 
   return (
