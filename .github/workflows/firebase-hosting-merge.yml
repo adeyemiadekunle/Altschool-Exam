@@ -18,3 +18,6 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ALTSCHOOL_EXAMINATION }}'
           channelId: live
           projectId: altschool-examination
+runs:
+  using: 'node16'
+  main: 'main.js'
