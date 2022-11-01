@@ -1,9 +1,13 @@
-// Import the functions you need from the SDKs you need
+// Import the functions you need from the SDKs you need\
+
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   GoogleAuthProvider,
   signInWithRedirect,
+  signOut,
+  getRedirectResult,
+  onAuthStateChanged,
 } from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -18,9 +22,18 @@ const firebaseConfig = {
   appId: '1:438548959328:web:490eb4dfc24324f64db305',
 };
 
-const auth = getAuth();
-const provider = new GoogleAuthProvider();
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export { auth, provider, signInWithRedirect };
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+export default app;
+
+export {
+  auth,
+  provider,
+  signInWithRedirect,
+  signOut,
+  getRedirectResult,
+  onAuthStateChanged,
+};

@@ -30,7 +30,7 @@ const Pagination = () => {
           maxWidth: '90%',
           marginLeft: 'auto',
           marginRight: 'auto',
-          paddingTop: '100px',
+          paddingTop: '200px',
           textAlign: 'center',
         }}
       >
