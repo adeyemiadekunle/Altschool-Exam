@@ -6,7 +6,7 @@ import ErrorBoundaries from './Pages/ErrorBoundaries';
 import Pagination from './Pages/Pagination';
 import Error from './Pages/Error'
 import Footer from './Component/Footer';
-import RequireAuth from './Component/RequireAuth';
+// import RequireAuth from './Component/RequireAuth';
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}></Route>
       <Route path="/errorboundary" element={<ErrorBoundaries/>}></Route>
-      <Route path="/pagination" element={ <RequireAuth><Pagination/></RequireAuth>}></Route>
+      <Route path="/pagination" element={ <Pagination/>}></Route>
       <Route path="*" element={<Error/>}></Route>
     </Routes>
     <Footer/>
