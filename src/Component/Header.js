@@ -12,11 +12,16 @@ import {
 
 const Header = () => {
   const navigate = useNavigate();
+  const [isAuth, setIsAuth] = React.useState(false);
 
   const handleSignIn = async (event) => {
     event.preventDefault();
-    console.log('Signing In');
-    await signInWithRedirect(auth, provider);
+    try {
+      await signInWithRedirect(auth, provider);
+      console.log('Signing In');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   //get result of sign in
@@ -26,38 +31,41 @@ const Header = () => {
       .then((result) => {
         if (result) {
           console.log('Signin Successful');
-          navigate('/pagination');
+          // navigate('/pagination');
         }
       })
       .catch((error) => {
         console.log('Signin Failed', error);
       });
-  }, [navigate]);
+  }, []);
 
   //listen for auth state change
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log('User is signed in');
+        setIsAuth(true);
+        navigate('/pagination');
       } else {
         console.log('User is signed out');
+        setIsAuth(false);
+        navigate('/');
       }
     });
     return unsubscribe;
-  }, []);
+  }, [navigate]);
 
+
+  // sign out
   const handleSignOut = async (event) => {
-    await signOut(auth)
-      .then(() => {
-        if (signOut) {
-          navigate('/');
-        }
-        // console.log('Signout Successful');
-      })
-      .catch((error) => {
-        // An error happened.
-        console.log('error', error);
-      });
+    event.preventDefault();
+    try {
+      await signOut(auth);
+      console.log('Signout Successful');
+      // navigate('/');
+    } catch (error) {
+      console.log('Signout Failed', error);
+    }
   };
 
   return (
@@ -78,12 +86,13 @@ const Header = () => {
 
           <div className="nav_button">
             <div>
-           <button onClick={handleSignIn}>
+              {!isAuth && (<button onClick={handleSignIn}>
                 Sign In with Google
-              </button>
+              </button>)}
+              
             </div>
             <div>
-            <button onClick={handleSignOut}>Log Out</button>
+              {isAuth && (<button onClick={handleSignOut}>Log Out</button>)}
             </div>
           </div>
         </nav>
