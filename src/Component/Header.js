@@ -17,7 +17,6 @@ const Header = () => {
     event.preventDefault();
     console.log('Signing In');
     await signInWithRedirect(auth, provider);
-
   };
 
   //get result of sign in
@@ -26,8 +25,8 @@ const Header = () => {
     result
       .then((result) => {
         if (result) {
-          // console.log('Signin Successful', result.user);
-          navigate('/pagination');
+          console.log('Signin Successful', result.user);
+          navigate('/pagination', { replace: true });
         }
       })
       .catch((error) => {
@@ -36,10 +35,10 @@ const Header = () => {
   }, [navigate]);
 
   //listen for auth state change
-  useEffect((handleSignOut) => {
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // console.log('User is signed in', user);
+        console.log('User is signed in', user);
       } else {
         console.log('User is signed out');
       }
@@ -47,14 +46,13 @@ const Header = () => {
     return unsubscribe;
   }, []);
 
-  
   const handleSignOut = async (event) => {
-     
-     await signOut(auth)
+    await signOut(auth)
       .then(() => {
+        if (signOut.user) {
+          navigate('/');
+        }
         console.log('Signout Successful');
-        navigate('/');
-  
       })
       .catch((error) => {
         // An error happened.
@@ -80,12 +78,16 @@ const Header = () => {
 
           <div className="nav_button">
             <div>
-              <button onClick={handleSignIn}>
-                Sign In with Google
-              </button>
+              {!auth.user && (
+                <button onClick={handleSignIn}>
+                  Sign In with Google
+                </button>
+              )}
             </div>
             <div>
-              <button onClick={handleSignOut}>Log Out</button>
+              {auth.user && (
+                <button onClick={handleSignOut}>Log Out</button>
+              )}
             </div>
           </div>
         </nav>

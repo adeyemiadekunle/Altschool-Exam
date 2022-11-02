@@ -1,10 +1,12 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import { auth } from '../Config';
 
-const RequireAuth = () => {
-  return (
-    <div>RequireAuth</div>
-  )
-}
+const RequireAuth = (Children) => {
+  if (!auth.user) {
+    return <Navigate to="/" />;
+  }
+  return Children;
+};
 
-export default RequireAuth
+export default RequireAuth;
