@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { UserAuth } from './AuthContext';
 
+
 const Header = () => {
   
   const {user, isAuth, auth, provider, logIn, logOut  } = UserAuth();

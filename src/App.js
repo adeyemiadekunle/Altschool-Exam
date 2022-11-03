@@ -20,9 +20,9 @@ function App() {
         FallbackComponent={Fallback}
         onError={errorHandler}
       >
-        
+         
         <AuthContextProvider>
-          <Header></Header>
+        <Header></Header>
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route
