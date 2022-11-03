@@ -42,6 +42,7 @@ export const AuthContextProvider = ({ children }) => {
       if (user) {
         // console.log('User is signed in');
         setUser(user);
+        console.log(user);
         setIsAuth(true);
      
       } else {
@@ -51,7 +52,7 @@ export const AuthContextProvider = ({ children }) => {
       }
     });
 
-    return unsubscribe;
+    return unsubscribe();
   }, []);
 
   
