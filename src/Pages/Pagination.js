@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import useFetch from '../Component/useFetch';
+import { Helmet } from 'react-helmet-async';
 
 const Pagination = () => {
   const [page, setpage] = useState(1);
@@ -41,6 +42,13 @@ const Pagination = () => {
 
   return (
     <>
+     <Helmet>
+        <title> Pagination | AltSchool Examination by Adeyemi Adekunle</title>
+        <meta
+      name="description"
+      content="This is pagination page and it is used to display data in pages"
+    />
+      </Helmet>
       <main className="pagination">
         <section className="pagination_container">
           <div>

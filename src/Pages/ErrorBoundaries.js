@@ -1,25 +1,24 @@
 import React from 'react';
 import Counter from '../Component/Counter';
-import { ErrorBoundary } from 'react-error-boundary';
-import { Fallback } from '../Component/Fallback';
+import { Helmet } from 'react-helmet-async';
 
 const ErrorBoundaries = () => {
-  const errorHandler = (error, errorInfo) => {
-    console.log('Logging', error, errorInfo);
-  };
+ 
 
   return (
     <>
+  <Helmet>
+        <title> ErrorBoundary | AltSchool Examination by Adeyemi Adekunle</title>
+        <meta
+      name="description"
+      content="Error Boundary was used to catch error"
+    />
+      </Helmet>
       <main className="error_boundary">
         <h1 className='title'>Error Boundary</h1>
 
         <div>
-          <ErrorBoundary
-            FallbackComponent={Fallback}
-            onError={errorHandler}
-          >
-            <Counter />
-          </ErrorBoundary>
+            <Counter />     
         </div>
       </main>
     </>
