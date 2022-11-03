@@ -46,8 +46,9 @@ const Pagination = () => {
         <title> Pagination | AltSchool Examination by Adeyemi Adekunle</title>
         <meta
       name="description"
-      content="This is pagination page and it is used to display data in pages"
-    />
+      content="Paggination, it display list of users from randomuser.me api"
+    />   <link rel='canonical' href='https://altschool-examination.firebaseapp.com/pagination' />
+   
       </Helmet>
       <main className="pagination">
         <section className="pagination_container">

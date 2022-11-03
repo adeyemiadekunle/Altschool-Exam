@@ -10,6 +10,7 @@ const Error = () => {
       name="description"
       content="This is error page and it is not found"
     />
+        <link rel='canonical' href='https://altschool-examination.firebaseapp.com/error' />
       </Helmet>
     <main>
       <section className="error-page">

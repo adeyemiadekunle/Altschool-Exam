@@ -290,6 +290,7 @@ body {
   color: #ff0033;
   font-size: 20px;
   text-align: center;
+  margin-top: 200px;
 }
 
 .error_message button {

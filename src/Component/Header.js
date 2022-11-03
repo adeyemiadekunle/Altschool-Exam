@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { UserAuth } from './AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 
 const Header = () => {
+  const navigate = useNavigate();
   
   const {user, isAuth, auth, provider, logIn, logOut  } = UserAuth();
 
@@ -24,6 +26,7 @@ const Header = () => {
     try {
       await logOut(auth);
       console.log('Signout Successful');
+      navigate('/');
       } catch (error) {
       console.log('Signout Failed', error);
     }

@@ -10,6 +10,7 @@ const Home = () => {
       name="description"
       content="This is Second Semester Examination for AltSchool"
     />
+       <link rel='canonical' href='https://altschool-examination.firebaseapp.com' />
       </Helmet>
      
     

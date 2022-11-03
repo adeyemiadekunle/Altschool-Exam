@@ -1,43 +1,59 @@
-import './App.css';
+import { Suspense, lazy } from 'react';
 import Header from './Component/Header';
 import { Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home';
-import ErrorBoundaries from './Pages/ErrorBoundaries';
+import { AuthContextProvider } from './Component/AuthContext';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Fallback } from './Component/Fallback';
-import Pagination from './Pages/Pagination';
+import ProtectedRoute from './Component/ProtectedRoute';
 import Error from './Pages/Error';
 import Footer from './Component/Footer';
-import { AuthContextProvider } from './Component/AuthContext';
 
 function App() {
   const errorHandler = (error, errorInfo) => {
     console.log('Logging', error, errorInfo);
   };
+  const Home = lazy(() => import('./Pages/Home'));
+  const Pagination = lazy(() => import('./Pages/Pagination'));
+  const ErrorBoundaries = lazy(() =>
+    import('./Pages/ErrorBoundaries')
+  );
+
+  const StyledLoading = {
+    width: '100%',
+    maxWidth: '90%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    paddingTop: '200px',
+    textAlign: 'center',
+  };
+
   return (
     <>
-      <ErrorBoundary
-        FallbackComponent={Fallback}
-        onError={errorHandler}
-      >
-         
-        <AuthContextProvider>
-        <Header></Header>
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route
-              path="/errorboundary"
-              element={<ErrorBoundaries />}
-            ></Route>
-            <Route
-              path="/pagination"
-              element={<Pagination />}
-            ></Route>
-            <Route path="*" element={<Error />}></Route>
-          </Routes>
-        </AuthContextProvider>
-        <Footer />
-      </ErrorBoundary>
+      <Suspense
+        fallback={<div style={StyledLoading}>Loading...</div>}>
+        <ErrorBoundary
+          FallbackComponent={Fallback}
+          onError={errorHandler}
+        >
+          <AuthContextProvider>
+            <Header></Header>
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route
+                path="/errorboundary"
+                element={
+                  <ProtectedRoute><ErrorBoundaries /></ProtectedRoute>}></Route>
+              <Route
+                path="/pagination"
+                element={
+                  <ProtectedRoute><Pagination /></ProtectedRoute>
+                }></Route>
+              <Route path="*" element={<Error />}></Route>
+            </Routes>
+          </AuthContextProvider>
+          <Footer />
+        </ErrorBoundary>
+      </Suspense>
     </>
   );
 }
