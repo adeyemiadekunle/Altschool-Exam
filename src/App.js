@@ -13,9 +13,9 @@ function App() {
     console.log('Logging', error, errorInfo);
   };
   const Home = lazy(() => import('./Pages/Home'));
-  const Pagination = lazy(() => import('./Pages/Pagination'));
-  const ErrorBoundaries = lazy(() =>
-    import('./Pages/ErrorBoundaries')
+  const User = lazy(() => import('./Pages/User'));
+  const Counter = lazy(() =>
+    import('./Pages/Counter')
   );
 
   const StyledLoading = {
@@ -40,13 +40,14 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route
-                path="/errorboundary"
-                element={
-                  <ProtectedRoute><ErrorBoundaries /></ProtectedRoute>}></Route>
+                path="/counter"
+                element={<Counter />}></Route>
               <Route
-                path="/pagination"
+                path="/users"
                 element={
-                  <ProtectedRoute><Pagination /></ProtectedRoute>
+                  <ProtectedRoute>
+                    <User />
+                  </ProtectedRoute>
                 }></Route>
               <Route path="*" element={<Error />}></Route>
             </Routes>

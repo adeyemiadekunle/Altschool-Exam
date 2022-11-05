@@ -10,7 +10,7 @@ body {
   line-height: 1.5;
   background: black;
   color: white !important;
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 .header {
@@ -25,7 +25,6 @@ body {
   margin-right: auto;
   padding: 20px 0px;
   border-bottom: 1px solid grey;
-
   display: flex;
   justify-content: space-between;
 }
@@ -75,10 +74,8 @@ body {
 .footer {
   padding: 10px 0px;
   background: black;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  
+   
 }
 
 .footer-container {
@@ -93,14 +90,15 @@ body {
   border-top: 1px solid grey;
 }
 
-/* Home Section */
 
+/* Home Section */
 .home {
   width: 100%;
   background: black;
   color: white;
   margin-top: auto;
   margin-bottom: auto;
+  height: 72vh;
 }
 
 .home_container {
@@ -125,9 +123,14 @@ body {
   margin-top: 0;
 }
 
+
+
 /* Pagination */
-.pagination {
+.user {
   color: white;
+  margin-bottom: 20px;
+  width: 100%;
+ 
 }
 
 .userlist {
@@ -144,7 +147,7 @@ body {
   font-size: 20px;
 }
 
-.pagination_container {
+.user_container {
   width: 100%;
   max-width: 90%;
   margin-left: auto;
@@ -152,6 +155,44 @@ body {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
+}
+
+.user_card_container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.userCard {
+  width: 250px;
+  max-width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  height: 300px;
+
+}
+
+.userCard .img_container {
+ width: 200px;
+ height: 100%;
+}
+
+.userCard img {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 100px;
+}
+
+.card_info {
+  text-align: center;
 }
 
 .prev,
@@ -233,34 +274,38 @@ body {
 
 
 /* ErrorBoundary Page */
-.error_boundary {
+.counter {
   width: 100%;
-  height: 100%;
+  height: 72vh;
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-flow: column;
-  justify-content: center;
-  /* align-items: center; */
+  /* justify-content: center; */
   color: white;
   font-size: 36px;
-  margin-top: 50px;
+  
+ 
 }
 
-.error_boundary .title {
+.counter .title {
   text-align: left;
    width: 100%;
    margin-bottom: 20px;
    font-size: 36px;
+   margin-top: 50px;
 }
 
 
 
-/* Counter */
+/* CounterHook */
 .counter_container {
   width: 100%;
+  height: 100%;
   text-align: center;
+
+  margin-top: 50px;
 }
 
 .counter_container h1 {

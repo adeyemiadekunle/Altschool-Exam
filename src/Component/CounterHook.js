@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useErrorHandler } from 'react-error-boundary';
 
 // Hook Counter
-const Counter = () => {
+const CounterHook = () => {
   const MAX_COUNT_ALLOWED = 5;
   const initialCount = 0;
   const [count, setCount] = useState(initialCount);
@@ -34,7 +34,7 @@ const Counter = () => {
 
   return (
     <>
-      <section className="counter">
+      <section className="counter_hook">
           <div className='counter_container'>
             <h1>Increment the count more than 5</h1>
             <p>Count:  {count}</p>
@@ -47,4 +47,4 @@ const Counter = () => {
   );
 };
 
-export default Counter;
+export default CounterHook;

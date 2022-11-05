@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { UserAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
@@ -33,20 +33,31 @@ const Header = () => {
     }
   };
 
+  let activeStyle = {
+    fontWeight: 'bold',
+    outline: "1px solid green",
+  };
+
   return (
     <>
       <header className="header">
         <nav className="nav_container">
           <div className="navbar">
-            <Link to="/" end="true" className="link">
+            <NavLink to="/" end="true" className="link"  style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
               Home
-            </Link>
-            <Link to="/errorboundary" className="link">
-              ErrorBoundary
-            </Link>
-            <Link to="/pagination" className="link">
-              Pagination
-            </Link>
+            </NavLink>
+            <NavLink to="/counter" className="link" style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
+              Counter
+            </NavLink>
+            <NavLink to="/users" className="link" style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
+              User
+            </NavLink>
           </div>
 
           <div className="nav_button">

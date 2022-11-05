@@ -27,7 +27,7 @@ export const AuthContextProvider = ({ children }) => {
       .then((result) => {
         if (result) {
           console.log('Signin Successful');
-          navigate('/errorboundary');
+          navigate('/users');
         }
       })
       .catch((error) => {

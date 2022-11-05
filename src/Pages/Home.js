@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
+
 const Home = () => {
   return (
     <>
@@ -18,7 +19,7 @@ const Home = () => {
         <section className="home_container">
           <h1 className="heading1">Welcome to AltSchool Africa</h1>
           <p className="text"> Second Semester Examination</p>
-          <p className="text">Question 4</p>
+          {/* <p className="text">Question 4</p> */}
         </section>
       </main>
     </>

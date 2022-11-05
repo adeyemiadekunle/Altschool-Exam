@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import useFetch from '../Component/useFetch';
 import { Helmet } from 'react-helmet-async';
+import UserCard from '../Component/UserCard';
 
-const Pagination = () => {
+const Users = () => {
   const [page, setpage] = useState(1);
 
   const { loading, error, data } = useFetch(
@@ -43,28 +44,30 @@ const Pagination = () => {
   return (
     <>
      <Helmet>
-        <title> Pagination | AltSchool Examination by Adeyemi Adekunle</title>
+        <title> Users | AltSchool Examination by Adeyemi Adekunle</title>
         <meta
       name="description"
-      content="Paggination, it display list of users from randomuser.me api"
+      content="Users, it display list of users from randomuser.me api"
     />   <link rel='canonical' href='https://altschool-examination.firebaseapp.com/pagination' />
    
       </Helmet>
-      <main className="pagination">
-        <section className="pagination_container">
+      <main className="user">
+        <section className="user_container">
           <div>
             <div>
               <h2>List of User details</h2>
             </div>
             <div className="text-container">
-              <div>
+              <div className='user_card_container'>
                 {data?.results.map((each, index) => {
                   return (
-                    <div key={index} className="userlist">
-                      <p>{`${index + 1}.`}</p>
-                      <p>{each.name.title}</p>
-                      <p>{each.name.first}</p>
-                      <p>{each.name.last}</p>
+                    <div key={index}>
+                      <UserCard
+                      ImgUrl={each.picture.large}
+                      firstName={each.name.first}
+                      lastName={each.name.last}
+                      country={each.location.country}
+                      />
                     </div>
                   );
                 })}
@@ -124,4 +127,4 @@ const Pagination = () => {
   );
 };
 
-export default Pagination;
+export default Users;
