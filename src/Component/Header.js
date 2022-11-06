@@ -3,35 +3,42 @@ import { NavLink } from 'react-router-dom';
 import { UserAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
+import {
+  signInWithRedirect,
+  signOut,
+  provider,
+  auth
+} from '../Config';
 
 
 const Header = () => {
+
   const navigate = useNavigate();
 
-  const { user, isAuth, auth, provider, logIn, logOut } = UserAuth();
+  const { user, isAuth } = UserAuth();
 
-  const handleSignIn = async (event) => {
-    event.preventDefault();
+ //sign in
+  const handleSignIn =  async(e) => {
+    e.preventDefault();
     try {
-      await logIn(auth, provider);
-      console.log('Signing In');
+      await signInWithRedirect(auth, provider);
     } catch (error) {
       console.log(error);
     }
-  };
+    
+  }
 
-
-  // sign out
-  const handleSignOut = async (event) => {
-    event.preventDefault();
+  const handleSignOut = async(e) => {
+    e.preventDefault();
     try {
-      await logOut(auth);
-      console.log('Signout Successful');
-      navigate('/');
+      await signOut(auth);
+      navigate ('/');
     } catch (error) {
-      console.log('Signout Failed', error);
+      console.log(error);
     }
-  };
+   }
+
+
 
   let activeStyle = {
     fontWeight: 'bold',

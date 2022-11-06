@@ -165,7 +165,7 @@ body {
 
 .userCard {
   width: 250px;
-  max-width: 100%;
+  max-width: 300px;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
