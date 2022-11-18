@@ -35,7 +35,7 @@ export const AuthContextProvider = ({ children }) => {
       if (user) {
         setUser(user);
         navigate('/users');
-        console.log(user);
+        // console.log(user);
         setIsAuth(true);
       } else {
         setUser(null);
