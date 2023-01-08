@@ -15,7 +15,10 @@ const Error = () => {
     <main>
       <section className="error-page">
         <h1>404</h1>
-        <p>Error Page</p>
+        <p> Page Not Found</p>
+        <button className='back_home_btn'>
+          <a href="/">Back Home</a>
+        </button>
       </section>
     </main>
     </>
