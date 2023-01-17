@@ -1,44 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { UserAuth } from './AuthContext';
-import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
-import {
-  signInWithRedirect,
-  signOut,
-  provider,
-  auth
-} from '../Config';
 
 
 const Header = () => {
 
-  const navigate = useNavigate();
-
-  const { user, isAuth } = UserAuth();
-
- //sign in
-  const handleSignIn =  async(e) => {
-    e.preventDefault();
-    try {
-      await signInWithRedirect(auth, provider);
-    } catch (error) {
-      console.log(error);
-    }
-    
-  }
-
-  const handleSignOut = async(e) => {
-    e.preventDefault();
-    try {
-      await signOut(auth);
-      navigate ('/');
-    } catch (error) {
-      console.log(error);
-    }
-   }
-
-
+  const { user, isAuth, handleSignIn, handleSignOut } = UserAuth();
 
   let activeStyle = {
     fontWeight: 'bold',
@@ -74,7 +42,8 @@ const Header = () => {
                   <div><p style={{ padding: '0px 20px', color: 'orange', fontSize: '16px' }}>{user.displayName}</p></div>
                   <div><button onClick={handleSignOut}>Log Out</button></div>
                 </div>
-              ) : (<button onClick={handleSignIn}>
+              ) : 
+              (<button onClick={handleSignIn}>
                <span>{ <FcGoogle  style={{ marginBottom: '-4px', fontSize: '20px'}}/>}</span>  Sign In with Google
               </button>)}
 
